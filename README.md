@@ -52,19 +52,7 @@
 
 ---
 
-## 👁️ The WayneTech Showcase
 
-<div align="center">
-
-| 🌃 Gotham Command HUD | 🦇 Tactical Menu Bar Drop |
-| :---: | :---: |
-| <img src="assets/cinematic_showcase.jpg" width="440" alt="Cinematic Showcase" style="border-radius: 8px;" /> | <img src="assets/action_preview.jpg" width="440" alt="Action Preview" style="border-radius: 8px;" /> |
-
-</div>
-
-<br />
-
----
 
 ## 🧠 Why Batman Reminder?
 
