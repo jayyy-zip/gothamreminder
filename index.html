@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Batman Reminder — The Batcomputer's Hydration Protocol for Mac</title>
+  <meta name="description" content="Stay hydrated. Even in the darkest night. A premium macOS menu bar app that brings Batman to your screen when it's time to drink water." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/app_icon.jpg" />
+  
+  <!-- Google Fonts: Inter & Space Grotesk / JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="batman-theme">
+  <!-- Subtle Gotham Background Canvas -->
+  <canvas id="gotham-particles"></canvas>
+  
+  <!-- Global Bat-Signal Ambient Spotlight Background -->
+  <div class="ambient-glow"></div>
+  <div class="bat-signal-spotlight" id="batSignalSpotlight"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="navbar">
+    <div class="header-container">
+      <a href="#" class="brand-logo" aria-label="Batman Reminder Home">
+        <div class="app-icon-wrap">
+          <img src="assets/app_icon.jpg" alt="Batman Reminder Icon" class="nav-app-icon" />
+          <div class="icon-glow-ring"></div>
+        </div>
+        <div class="brand-text-wrap">
+          <span class="brand-name">Batman Reminder</span>
+          <span class="brand-badge">macOS</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#demo" class="nav-link">Preview</a>
+        <a href="https://drive.google.com/file/d/1KNn-R_4OTjskQ5JlRN_RrJKWMEPt8AFQ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="nav-link">Release Notes</a>
+        <a href="#faqs" class="nav-link">Manual &amp; FAQs</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://drive.google.com/file/d/17nPK4XWNVtFpvqt9_mEetUUNwzNr-NXz/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-nav-download" id="headerDownloadBtn">
+          <svg class="apple-svg" viewBox="0 0 170 170" width="15" height="15" fill="currentColor">
+            <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.81-11.94-14.3-5.27-8.03-9.5-17.13-12.7-27.31-3.2-10.18-4.8-19.8-4.8-28.86 0-14.18 3.59-25.99 10.77-35.43 7.18-9.44 16.27-14.28 27.27-14.52 4.91 0 10.51 1.25 16.8 3.75 6.29 2.5 10.15 3.81 11.58 3.93 1.62-.12 5.75-1.5 12.39-4.14 6.64-2.64 12.22-3.8 16.74-3.48 12.5.83 22.37 5.72 29.61 14.67-11.05 6.74-16.46 16.03-16.23 27.87.23 9.4 3.82 17.26 10.77 23.59 6.95 6.33 15.08 9.87 24.39 10.62-2.12 6.3-4.66 12.74-7.62 19.32zM119.22 33.09c0-6.72 2.45-13.2 7.35-19.45 4.9-6.24 11-10.59 18.3-13.04.23 1.2.35 2.28.35 3.24 0 6.6-2.58 13.08-7.74 19.45-5.16 6.36-11.23 10.6-18.21 12.72-.05-.96-.05-1.93-.05-2.92z"/>
+          </svg>
+          <span>Download for Mac</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-glow-backdrop"></div>
+      <div class="container hero-container">
+        
+        <!-- Hero Monospace Tag -->
+        <div class="hero-protocol-tag">
+          <span class="pulse-dot"></span>
+          <span class="tag-mono">BATCOMPUTER HYDRATION PROTOCOL // v1.0 ACTIVE</span>
+        </div>
+
+        <!-- Hero Headline -->
+        <h1 class="hero-title">
+          Stay <span class="highlight-yellow">hydrated</span>.<br />
+          Even in the darkest night.
+        </h1>
+
+        <!-- Hero Supporting Line -->
+        <p class="hero-subtitle">
+          The Batcomputer’s personal hydration protocol for your Mac.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta-group">
+          <!-- Primary CTA: Download for Mac -->
+          <a href="https://drive.google.com/file/d/17nPK4XWNVtFpvqt9_mEetUUNwzNr-NXz/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-primary" id="heroDownloadBtn">
+            <svg class="apple-svg" viewBox="0 0 170 170" width="18" height="18" fill="currentColor">
+              <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.81-11.94-14.3-5.27-8.03-9.5-17.13-12.7-27.31-3.2-10.18-4.8-19.8-4.8-28.86 0-14.18 3.59-25.99 10.77-35.43 7.18-9.44 16.27-14.28 27.27-14.52 4.91 0 10.51 1.25 16.8 3.75 6.29 2.5 10.15 3.81 11.58 3.93 1.62-.12 5.75-1.5 12.39-4.14 6.64-2.64 12.22-3.8 16.74-3.48 12.5.83 22.37 5.72 29.61 14.67-11.05 6.74-16.46 16.03-16.23 27.87.23 9.4 3.82 17.26 10.77 23.59 6.95 6.33 15.08 9.87 24.39 10.62-2.12 6.3-4.66 12.74-7.62 19.32zM119.22 33.09c0-6.72 2.45-13.2 7.35-19.45 4.9-6.24 11-10.59 18.3-13.04.23 1.2.35 2.28.35 3.24 0 6.6-2.58 13.08-7.74 19.45-5.16 6.36-11.23 10.6-18.21 12.72-.05-.96-.05-1.93-.05-2.92z"/>
+            </svg>
+            <span>Download for Mac</span>
+          </a>
+
+          <!-- Secondary CTA: Release Notes -->
+          <a href="https://drive.google.com/file/d/1KNn-R_4OTjskQ5JlRN_RrJKWMEPt8AFQ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-secondary-link" id="heroReleaseNotesBtn">
+            <span>Release Notes</span>
+            <span class="btn-arrow">→</span>
+          </a>
+
+          <div class="os-badge-pill">
+            <svg class="apple-svg" viewBox="0 0 170 170" width="14" height="14" fill="currentColor">
+              <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.81-11.94-14.3-5.27-8.03-9.5-17.13-12.7-27.31-3.2-10.18-4.8-19.8-4.8-28.86 0-14.18 3.59-25.99 10.77-35.43 7.18-9.44 16.27-14.28 27.27-14.52 4.91 0 10.51 1.25 16.8 3.75 6.29 2.5 10.15 3.81 11.58 3.93 1.62-.12 5.75-1.5 12.39-4.14 6.64-2.64 12.22-3.8 16.74-3.48 12.5.83 22.37 5.72 29.61 14.67-11.05 6.74-16.46 16.03-16.23 27.87.23 9.4 3.82 17.26 10.77 23.59 6.95 6.33 15.08 9.87 24.39 10.62-2.12 6.3-4.66 12.74-7.62 19.32zM119.22 33.09c0-6.72 2.45-13.2 7.35-19.45 4.9-6.24 11-10.59 18.3-13.04.23 1.2.35 2.28.35 3.24 0 6.6-2.58 13.08-7.74 19.45-5.16 6.36-11.23 10.6-18.21 12.72-.05-.96-.05-1.93-.05-2.92z"/>
+            </svg>
+            <span>macOS 14+</span>
+          </div>
+        </div>
+
+        <!-- HERO PRODUCT SHOWCASE -->
+        <div class="hero-showcase-wrapper">
+          <div class="hero-showcase-panel">
+            <!-- Background atmosphere -->
+            <div class="showcase-gotham-bg"></div>
+            <div class="showcase-bat-signal"></div>
+            <div class="showcase-scanlines"></div>
+
+            <div class="showcase-content-grid">
+              
+              <!-- LEFT: Native macOS Menu-Bar App UI -->
+              <div class="showcase-left-app">
+                <div class="macos-window-card">
+                  <!-- macOS Window Titlebar -->
+                  <div class="window-header">
+                    <div class="window-dots">
+                      <span class="dot dot-close"></span>
+                      <span class="dot dot-min"></span>
+                      <span class="dot dot-max"></span>
+                    </div>
+                    <div class="window-title">
+                      <svg class="mini-bat-icon" viewBox="0 0 24 24" width="14" height="14" fill="#F5C518">
+                        <path d="M12 4c.8 1.4 1.8 2.2 3.2 2.2.9 0 2.2-.4 3.8-2 0 3-1 6-3 8 2.2 0 4.2-1 6-3-.2 5-3.5 10.8-10 10.8S2.2 14.2 2 9.2c1.8 2 3.8 3 6 3-2-2-3-5-3-8 1.6 1.6 2.9 2 3.8 2 1.4 0 2.4-.8 3.2-2.2z"/>
+                      </svg>
+                      <span>Batman Reminder</span>
+                    </div>
+                    <div class="window-status-pill">ONLINE</div>
+                  </div>
+
+                  <!-- Batcomputer Reminder Panel Body -->
+                  <div class="app-panel-body">
+                    <div class="app-headline-row">
+                      <div class="app-bat-emblem">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="#F5C518">
+                          <path d="M12 4c.8 1.4 1.8 2.2 3.2 2.2.9 0 2.2-.4 3.8-2 0 3-1 6-3 8 2.2 0 4.2-1 6-3-.2 5-3.5 10.8-10 10.8S2.2 14.2 2 9.2c1.8 2 3.8 3 6 3-2-2-3-5-3-8 1.6 1.6 2.9 2 3.8 2 1.4 0 2.4-.8 3.2-2.2z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 class="app-heading">Batman Reminder</h3>
+                        <p class="app-subheading">Tactical WayneTech Hydration System</p>
+                      </div>
+                    </div>
+
+                    <!-- Reminder Message Box -->
+                    <div class="form-group">
+                      <label class="hud-label">MESSAGE</label>
+                      <div class="hud-input-box">
+                        <span class="hud-text">Time to drink water. Gotham needs you hydrated.</span>
+                        <span class="water-drop-icon">💧</span>
+                      </div>
+                    </div>
+
+                    <!-- Schedule Selector -->
+                    <div class="form-group">
+                      <label class="hud-label">SCHEDULE PROTOCOL</label>
+                      <div class="hud-tabs">
+                        <button class="hud-tab active" id="tabInterval">Interval (Every 45m)</button>
+                        <button class="hud-tab" id="tabFixed">Fixed Time</button>
+                      </div>
+                    </div>
+
+                    <!-- Time / Interval Selector -->
+                    <div class="hud-time-row">
+                      <div class="time-digit-box">
+                        <span class="digit-val" id="timeHour">00</span>
+                        <span class="digit-sub">HRS</span>
+                      </div>
+                      <span class="time-colon">:</span>
+                      <div class="time-digit-box active-glow">
+                        <span class="digit-val" id="timeMin">45</span>
+                        <span class="digit-sub">MIN</span>
+                      </div>
+                      <div class="time-controls">
+                        <button class="time-btn" id="btnTimeUp" title="Increase interval">▲</button>
+                        <button class="time-btn" id="btnTimeDown" title="Decrease interval">▼</button>
+                      </div>
+                      <div class="interval-tag">
+                        <span class="pulse-indicator"></span>
+                        <span>NEXT: 14:15</span>
+                      </div>
+                    </div>
+
+                    <!-- Interactive Hydration Quick Log -->
+                    <div class="quick-log-row">
+                      <label class="hud-label">QUICK WATER LOG</label>
+                      <div class="quick-log-pills">
+                        <button class="log-pill" onclick="logWater(250)">+250 ml</button>
+                        <button class="log-pill" onclick="logWater(500)">+500 ml</button>
+                        <button class="log-pill" onclick="logWater(750)">+750 ml</button>
+                      </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="app-action-buttons">
+                      <button class="btn-set-reminder" id="btnSetReminder">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <span>Set Reminder Protocol</span>
+                      </button>
+                      
+                      <button class="btn-test-reminder" id="btnTestReminder">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="#F5C518">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        <span>Test Batman Drop Reminder</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RIGHT: Batman Descending Cable Animation Frame -->
+              <div class="showcase-right-batman">
+                <!-- Tactical Cable Line -->
+                <div class="tactical-cable"></div>
+                
+                <!-- Batman Image with Glow and interactive swing -->
+                <div class="batman-hero-frame" id="batmanHeroFrame">
+                  <div class="bat-ambient-halo"></div>
+                  <img src="assets/batman_hanging.jpg" alt="Batman descending from macOS menu bar on tactical cable" class="batman-descending-img" />
+                  
+                  <!-- Batcomputer Telemetry Tag Floating Next to Batman -->
+                  <div class="bat-telemetry-badge">
+                    <div class="telemetry-header">
+                      <span class="telemetry-radar"></span>
+                      <span>TACTICAL HUD // DRINK ALERT</span>
+                    </div>
+                    <div class="telemetry-body">
+                      <span class="telemetry-metric">BATMAN ARRIVAL: READY</span>
+                      <span class="telemetry-streak">STREAK: 12 DAYS 🔥</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUCT BADGES / TAGS -->
+        <div class="product-tags-bar">
+          <div class="prod-badge">
+            <span class="badge-dot"></span>
+            <span class="badge-label">Built for macOS</span>
+          </div>
+          <div class="prod-badge highlight-border">
+            <span class="badge-icon-gold">⚡</span>
+            <span class="badge-label">100% Free</span>
+          </div>
+          <div class="prod-badge">
+            <span class="badge-label">v1.0 Native Build</span>
+          </div>
+          <div class="prod-badge">
+            <span class="badge-label">Apple Silicon + Intel</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="section-padding how-it-works-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-pretitle">TACTICAL WORKFLOW</span>
+          <h2 class="section-title">How Batman Reminder Works</h2>
+          <p class="section-description">
+            Zero friction, zero Dock clutter. Engineered to keep you sharp and hydrated at your desk.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 01 -->
+          <div class="step-card">
+            <div class="step-glow"></div>
+            <div class="step-number-box">
+              <span class="step-num">01</span>
+            </div>
+            <h3 class="step-heading">Install Batman Reminder</h3>
+            <p class="step-body">
+              Download the free macOS application and launch it directly from your Mac menu bar.
+            </p>
+            <div class="step-chip">Instant Launch</div>
+          </div>
+
+          <!-- Step 02 -->
+          <div class="step-card">
+            <div class="step-glow"></div>
+            <div class="step-number-box">
+              <span class="step-num">02</span>
+            </div>
+            <h3 class="step-heading">Set Your Protocol</h3>
+            <p class="step-body">
+              Choose your hydration goal, reminder interval, and quick-add water amounts to match your routine.
+            </p>
+            <div class="step-chip">Custom Intervals</div>
+          </div>
+
+          <!-- Step 03 -->
+          <div class="step-card">
+            <div class="step-glow"></div>
+            <div class="step-number-box">
+              <span class="step-num">03</span>
+            </div>
+            <h3 class="step-heading">Stay Hydrated</h3>
+            <p class="step-body">
+              Batman drops in silently from the menu bar when it's time to drink, keeping your streak alive.
+            </p>
+            <div class="step-chip">Cinematic Overlay</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="section-padding features-section" id="features">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-pretitle">ENGINEERED BY WAYNETECH</span>
+          <h2 class="section-title">Your Batcomputer Hydration Protocol</h2>
+          <p class="section-description">
+            Every feature calibrated for maximum focus, effortless logging, and Gotham-tier aesthetics.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          
+          <!-- Feature 1 -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <span class="feature-emoji">💧</span>
+            </div>
+            <h3 class="feature-title">Smart Hydration Tracking</h3>
+            <p class="feature-body">
+              Track your daily water intake with precision telemetry and monitor live progress toward your goal.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card highlight-feature">
+            <div class="feature-icon-wrapper">
+              <span class="feature-emoji">🦇</span>
+            </div>
+            <h3 class="feature-title">Batman Reminder Overlay</h3>
+            <p class="feature-body">
+              Batman drops down smoothly from the top of your Mac screen with a cinematic hydration reminder.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <span class="feature-emoji">⚡</span>
+            </div>
+            <h3 class="feature-title">Quick Water Logging</h3>
+            <p class="feature-body">
+              Log common water quantities instantly with customizable quick-add buttons and hotkeys.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <span class="feature-emoji">🔥</span>
+            </div>
+            <h3 class="feature-title">Hydration Streaks</h3>
+            <p class="feature-body">
+              Build and defend daily hydration streaks. Gotham rewards discipline and unwavering consistency.
+            </p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <span class="feature-emoji">🔔</span>
+            </div>
+            <h3 class="feature-title">Smart Notifications</h3>
+            <p class="feature-body">
+              Receive native macOS notifications with customizable audio cues, snooze limits, and quiet hours.
+            </p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper">
+              <span class="feature-emoji">🌙</span>
+            </div>
+            <h3 class="feature-title">Runs Quietly</h3>
+            <p class="feature-body">
+              Batman Reminder lives discreetly in your macOS menu bar without taking up room in your Dock.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCT PREVIEW (GIF SHOWCASE) SECTION -->
+    <section class="section-padding gif-preview-section" id="demo">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="hud-mono-tag">BATCOMPUTER // HYDRATION PROTOCOL</div>
+          <h2 class="section-title">See Batman Reminder in Action</h2>
+          <p class="section-description">
+            Your personal Batcomputer, keeping you hydrated.
+          </p>
+        </div>
+
+        <!-- Premium Product-Preview GIF Container -->
+        <div class="gif-preview-container-wrapper">
+          <div class="gif-product-card">
+            <!-- Batcomputer Top Window Header Bar -->
+            <div class="gif-card-header">
+              <div class="window-dots">
+                <span class="dot dot-close"></span>
+                <span class="dot dot-min"></span>
+                <span class="dot dot-max"></span>
+              </div>
+              <div class="gif-card-title">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="#F5C518">
+                  <path d="M12 4c.8 1.4 1.8 2.2 3.2 2.2.9 0 2.2-.4 3.8-2 0 3-1 6-3 8 2.2 0 4.2-1 6-3-.2 5-3.5 10.8-10 10.8S2.2 14.2 2 9.2c1.8 2 3.8 3 6 3-2-2-3-5-3-8 1.6 1.6 2.9 2 3.8 2 1.4 0 2.4-.8 3.2-2.2z"/>
+                </svg>
+                <span>Batman Reminder — Live Demonstration</span>
+              </div>
+              <div class="gif-status-badge">LIVE PREVIEW</div>
+            </div>
+
+            <!-- Authentic GIF Asset: Autoplays & Loops seamlessly -->
+            <div class="gif-media-frame">
+              <img 
+                src="assets/batman_preview.gif" 
+                alt="Batman Reminder macOS app experience animation showing Batman descending from the menu bar" 
+                class="product-preview-gif"
+                loading="eager"
+              />
+            </div>
+
+            <!-- Bottom Context Bar -->
+            <div class="gif-footer-bar">
+              <div class="gif-footer-left">
+                <span class="live-pulse-dot"></span>
+                <span class="hud-mono-sm">SYSTEM STATUS: SEAMLESS MENU BAR RUNTIME</span>
+              </div>
+              <div class="gif-footer-right">
+                <a href="https://drive.google.com/file/d/17nPK4XWNVtFpvqt9_mEetUUNwzNr-NXz/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="gif-get-btn">
+                  <svg class="apple-svg" viewBox="0 0 170 170" width="13" height="13" fill="currentColor">
+                    <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.81-11.94-14.3-5.27-8.03-9.5-17.13-12.7-27.31-3.2-10.18-4.8-19.8-4.8-28.86 0-14.18 3.59-25.99 10.77-35.43 7.18-9.44 16.27-14.28 27.27-14.52 4.91 0 10.51 1.25 16.8 3.75 6.29 2.5 10.15 3.81 11.58 3.93 1.62-.12 5.75-1.5 12.39-4.14 6.64-2.64 12.22-3.8 16.74-3.48 12.5.83 22.37 5.72 29.61 14.67-11.05 6.74-16.46 16.03-16.23 27.87.23 9.4 3.82 17.26 10.77 23.59 6.95 6.33 15.08 9.87 24.39 10.62-2.12 6.3-4.66 12.74-7.62 19.32zM119.22 33.09c0-6.72 2.45-13.2 7.35-19.45 4.9-6.24 11-10.59 18.3-13.04.23 1.2.35 2.28.35 3.24 0 6.6-2.58 13.08-7.74 19.45-5.16 6.36-11.23 10.6-18.21 12.72-.05-.96-.05-1.93-.05-2.92z"/>
+                  </svg>
+                  <span>Download for Mac</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INSTALLATION / SECURITY WARNING CARD -->
+        <div class="security-warning-card">
+          <div class="warning-icon-box">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="#FFD83D">
+              <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+            </svg>
+          </div>
+          <div class="warning-content">
+            <h3 class="warning-title">Getting a macOS Security Warning?</h3>
+            <p class="warning-text">
+              If macOS blocks the application from opening on first launch, go to <strong>System Settings → Privacy &amp; Security</strong>, scroll down to the Security section, and select <strong>“Open Anyway”</strong>.
+            </p>
+            <div class="warning-sub">
+              <span>Facing any questions? Reach out on GitHub or Instagram for 24/7 assistance.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="section-padding faq-section" id="faqs">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-pretitle">KNOWLEDGE BASE</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-description">
+            Everything you need to know about the Batcomputer hydration system.
+          </p>
+        </div>
+
+        <div class="faq-accordion-container">
+          
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Is Batman Reminder free?</span>
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Batman Reminder is completely free to download and use. There are no subscriptions, paywalls, or hidden telemetry.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Which Macs are supported?</span>
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Batman Reminder is compiled universally for all modern Apple Silicon (M1, M2, M3, M4) and Intel-based Macs running macOS Sonoma (14.0) or macOS Sequoia (15.0) and later.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Does it run in the background?</span>
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes. Batman Reminder lives quietly in your macOS menu bar without keeping an active window open or cluttering your Dock. It consumes virtually zero CPU (&lt;0.1%) when idling.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can I customize reminders?</span>
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! You can configure your daily hydration quota (e.g. 2,000ml to 4,000ml), intervals (from 15 minutes to 2 hours), custom drop animations, audio cues, and quick-add water presets.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Does it collect my data?</span>
+              <span class="faq-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>No. 100% of your hydration data, streaks, and timestamps are saved locally on your Mac's secure sandbox. No telemetry or personal information ever leaves your device.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="section-padding final-cta-section" id="download">
+      <div class="final-cta-spotlight"></div>
+      <div class="container text-center">
+        
+        <div class="final-bat-emblem">
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="#F5C518">
+            <path d="M12 4c.8 1.4 1.8 2.2 3.2 2.2.9 0 2.2-.4 3.8-2 0 3-1 6-3 8 2.2 0 4.2-1 6-3-.2 5-3.5 10.8-10 10.8S2.2 14.2 2 9.2c1.8 2 3.8 3 6 3-2-2-3-5-3-8 1.6 1.6 2.9 2 3.8 2 1.4 0 2.4-.8 3.2-2.2z"/>
+          </svg>
+        </div>
+
+        <h2 class="final-title">
+          Protect Gotham.<br />
+          Protect Your Hydration.
+        </h2>
+
+        <p class="final-subtitle">
+          “Even Batman needs water.”
+        </p>
+
+        <div class="final-cta-actions">
+          <a href="https://drive.google.com/file/d/17nPK4XWNVtFpvqt9_mEetUUNwzNr-NXz/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-primary btn-large" id="finalDownloadBtn">
+            <svg class="apple-svg" viewBox="0 0 170 170" width="22" height="22" fill="currentColor">
+              <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.04-7.67-7.81-11.94-14.3-5.27-8.03-9.5-17.13-12.7-27.31-3.2-10.18-4.8-19.8-4.8-28.86 0-14.18 3.59-25.99 10.77-35.43 7.18-9.44 16.27-14.28 27.27-14.52 4.91 0 10.51 1.25 16.8 3.75 6.29 2.5 10.15 3.81 11.58 3.93 1.62-.12 5.75-1.5 12.39-4.14 6.64-2.64 12.22-3.8 16.74-3.48 12.5.83 22.37 5.72 29.61 14.67-11.05 6.74-16.46 16.03-16.23 27.87.23 9.4 3.82 17.26 10.77 23.59 6.95 6.33 15.08 9.87 24.39 10.62-2.12 6.3-4.66 12.74-7.62 19.32zM119.22 33.09c0-6.72 2.45-13.2 7.35-19.45 4.9-6.24 11-10.59 18.3-13.04.23 1.2.35 2.28.35 3.24 0 6.6-2.58 13.08-7.74 19.45-5.16 6.36-11.23 10.6-18.21 12.72-.05-.96-.05-1.93-.05-2.92z"/>
+            </svg>
+            <span>Download Batman Reminder</span>
+          </a>
+        </div>
+
+        <div class="final-specs-line">
+          <span>Free for macOS</span>
+          <span class="dot-sep">•</span>
+          <a href="https://drive.google.com/file/d/1KNn-R_4OTjskQ5JlRN_RrJKWMEPt8AFQ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="specs-link">View Release Notes →</a>
+          <span class="dot-sep">•</span>
+          <span>Universal Binary (Apple Silicon + Intel)</span>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <div class="footer-brand">
+          <img src="assets/app_icon.jpg" alt="Batman Reminder" class="footer-app-icon" />
+          <span class="footer-title">Batman Reminder</span>
+        </div>
+        <p class="footer-tagline">
+          Built for those who refuse to forget hydration.
+        </p>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-links">
+          <a href="https://drive.google.com/file/d/17nPK4XWNVtFpvqt9_mEetUUNwzNr-NXz/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="footer-link highlight-link">Download for Mac</a>
+          <a href="https://drive.google.com/file/d/1KNn-R_4OTjskQ5JlRN_RrJKWMEPt8AFQ/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="footer-link">Release Notes</a>
+          <a href="https://github.com/jayyy-zip" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+          <a href="https://www.linkedin.com/in/jay-dhokne-891a55290/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
+          <a href="https://www.instagram.com/j3y.zip/?hl=en" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p class="copyright-text">
+        © 2026 Batman Reminder — Engineered for macOS. Crafted with Wayne Enterprises Batcomputer standards.
+      </p>
+    </div>
+  </footer>
+
+  <!-- INTERACTIVE BATMAN DROP TOAST SIMULATION MODAL -->
+  <div class="batman-drop-overlay" id="batmanDropOverlay">
+    <div class="batman-drop-stage">
+      <div class="sim-cable"></div>
+      <div class="sim-batman-wrapper" id="simBatmanWrapper">
+        <img src="assets/batman_hanging.jpg" alt="Batman Reminding You To Drink Water" class="sim-batman-img" />
+      </div>
+      <div class="sim-toast-hud" id="simToastHud">
+        <div class="sim-toast-header">
+          <span class="sim-toast-icon">🦇</span>
+          <span class="sim-toast-title">BATMAN REMINDER</span>
+          <span class="sim-toast-badge">NOW</span>
+        </div>
+        <div class="sim-toast-body">
+          <p class="sim-toast-msg">“Time to drink water. Gotham needs you hydrated.”</p>
+          <div class="sim-toast-actions">
+            <button class="btn-sim-drink" onclick="dismissBatmanDrop(true)">💧 Log +250ml &amp; Dismiss</button>
+            <button class="btn-sim-snooze" onclick="dismissBatmanDrop(false)">Snooze 5m</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
+</body>
+</html>
